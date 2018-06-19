@@ -29,7 +29,7 @@ head(TotalstepsPerDay)
 ```
 2. Make a histogram of the total number of steps taken each day
 
-```{r}
+```{r, fig.width=9}
 #Use ggplot2 package
 library(ggplot2)
 g <- ggplot(TotalstepsPerDay, aes(date, steps))

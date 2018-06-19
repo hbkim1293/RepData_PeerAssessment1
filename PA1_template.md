@@ -50,6 +50,7 @@ head(TotalstepsPerDay)
 ```
 2. Make a histogram of the total number of steps taken each day
 
+
 ```r
 #Use ggplot2 package
 library(ggplot2)
@@ -61,7 +62,7 @@ g + geom_histogram(stat = "identity") + labs(x = "Date", y = "Steps per day") + 
 ## Warning: Ignoring unknown parameters: binwidth, bins, pad
 ```
 
-![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6-1.png)
+![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-1.png)
 
 3. Calculate and report the mean and median of the total number of steps taken per day
 
@@ -94,12 +95,14 @@ TotalstepsPerInterval <- aggregate(steps ~ interval, data = ActData, mean, na.rm
 ```
 Make plot
 
+
 ```r
 g <- ggplot(TotalstepsPerInterval, aes(interval, steps))
 g + geom_line() + theme_classic() + ggtitle("Average number of steps each interval")
 ```
 
-![plot of chunk unnamed-chunk-10](figure/unnamed-chunk-10-1.png)
+![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-9-1.png)
+
 
 Find interval which has maximum number of steps
 
@@ -145,6 +148,7 @@ for (i in 1:length(TestInterval)) {
 4. Make a histogram of the total number of steps taken each day and Calculate and report the mean and median total number of steps taken per day.
 To make plot, you have to install "gridExtra" package.
 
+
 ```r
 TotalstepsPerDay_noNA <- aggregate(steps ~ date, ActData_noNA, sum)
 library(gridExtra)
@@ -168,7 +172,7 @@ plot2 <- g + geom_histogram(stat = "identity") + theme_classic() + ggtitle("Tota
 grid.arrange(plot1,plot2, ncol = 2)
 ```
 
-![plot of chunk unnamed-chunk-14](figure/unnamed-chunk-14-1.png)
+![plot of chunk unnamed-chunk-13](figure/unnamed-chunk-13-1.png)
 
 Here's mean and median of total number of steps taken per day.
 mean
@@ -218,10 +222,20 @@ PlotData <- aggregate(steps ~ interval + sorting, data = ActData_noNA, mean)
 
 Make Plot!
 
+
 ```r
 library(ggplot2)
 g1 <- ggplot(PlotData, aes(interval, steps))
+```
+
+```
+## Error in ggplot(PlotData, aes(interval, steps)): object 'PlotData' not found
+```
+
+```r
 g1 + geom_line(col = "blue") + facet_grid(.~sorting) + theme_classic() + ggtitle("Average number of steps per interval", subtitle = "Compare between weekday and weekend")
 ```
 
-![plot of chunk unnamed-chunk-19](figure/unnamed-chunk-19-1.png)
+```
+## Error in eval(expr, envir, enclos): object 'g1' not found
+```

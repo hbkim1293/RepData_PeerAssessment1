@@ -28,6 +28,7 @@ TotalstepsPerDay <- aggregate(steps ~ date, data = ActData, sum, na.rm = TRUE)
 head(TotalstepsPerDay)
 ```
 2. Make a histogram of the total number of steps taken each day
+
 ```{r}
 #Use ggplot2 package
 library(ggplot2)
@@ -54,10 +55,12 @@ Use aggregate function similarly, but by interval
 TotalstepsPerInterval <- aggregate(steps ~ interval, data = ActData, mean, na.rm = TRUE)
 ```
 Make plot
+
 ```{r}
 g <- ggplot(TotalstepsPerInterval, aes(interval, steps))
 g + geom_line() + theme_classic() + ggtitle("Average number of steps each interval")
 ```
+
 
 Find interval which has maximum number of steps
 ```{r}
@@ -91,6 +94,7 @@ for (i in 1:length(TestInterval)) {
 
 4. Make a histogram of the total number of steps taken each day and Calculate and report the mean and median total number of steps taken per day.
 To make plot, you have to install "gridExtra" package.
+
 ```{r}
 TotalstepsPerDay_noNA <- aggregate(steps ~ date, ActData_noNA, sum)
 library(gridExtra)
@@ -127,6 +131,7 @@ PlotData <- aggregate(steps ~ interval + sorting, data = ActData_noNA, mean)
 ```
 
 Make Plot!
+
 ```{r}
 library(ggplot2)
 g1 <- ggplot(PlotData, aes(interval, steps))
